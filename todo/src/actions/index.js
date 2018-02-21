@@ -7,13 +7,13 @@ export const addTask = (text) => {
   return {
     type: ADD_TASK,
     id: nextToDoID++,
-    text
+    payload: text
   }
 }
 
 export const toggle = (id) => {
   return {
     type: TOGGLE,
-    id
+    id,
   }
 }

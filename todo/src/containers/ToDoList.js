@@ -4,11 +4,11 @@ import { addTask, toggle } from '../actions';
 
 class ToDoList extends Component {
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     return (
       <div className="todoList">
-        {this.props.todoState.todos.map((todo, i) => {
-          return <li onClick={this.props.toggle(i)} key={i}>{todo.text}</li>
+        {this.props.todoState.todos.map((todo) => {
+          return <li onClick={() => this.props.toggle(todo.id)} key={todo.id}>{todo.text}</li>
         })}
       </div>
     )

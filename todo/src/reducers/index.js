@@ -8,37 +8,37 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK:
-      return Object.assign({}, {
+      let newState = Object.assign({}, {
         todos: [
           ...state.todos,
           {
-            text: action.text,
+            text: action.payload,
+            id: action.id,
             completed: false
           }
         ]
       });
+      console.log(newState);
+      return newState;
     case TOGGLE:
-      console.log(action);
-      return state;
-    //   return Object.assign({}, {
-    //     todos: state.todos.map((todo) => {
-    //       if (todo.id === action.id) {
-    //         todo.completed = !todo.completed
-    //       }
-    //     })
-    //   }
-    // )
-    // case TOGGLE:
-    //   return Object.assign({}, state, {
-    //     todos: state.todos.map((todo, index) => {
-    //       if (index === action.index) {
-    //         return Object.assign({}, todo, {
-    //           completed: !todo.completed
-    //         })
-    //       }
-    //       return todo
-    //     })
-    //   })
+      let tempState = Object.assign({}, {
+        todos: state.todos.map(todo => {
+          if (todo.id === action.id) Object.assign(todo, { completed: !todo.completed});
+          return todo;
+        })
+      });
+      console.log(tempState);
+      return tempState;
+      // return Object.assign({}, state, {
+      //   todos: state.todos.map((todo, index) => {
+      //     if (index === action.index) {
+      //       return Object.assign({}, todo, {
+      //         completed: !todo.completed
+      //       })
+      //     }
+      //     return todo
+      //   })
+      // })
     default:
       return state;
   }
