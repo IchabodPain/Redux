@@ -8,7 +8,7 @@ class ToDoList extends Component {
     return (
       <div className="todoList">
         {this.props.todoState.todos.map((todo) => {
-          return <li onClick={() => this.props.toggle(todo.id)} key={todo.id}>{todo.text}</li>
+          return <li onClick={() => this.props.toggle(todo.id)} key={todo.id} style={todo.completed ? {textDecoration:"line-through"} : {}}>{todo.text}</li>
         })}
       </div>
     )

@@ -20,6 +20,7 @@ export default (state = initialState, action) => {
       });
       console.log(newState);
       return newState;
+
     case TOGGLE:
       let tempState = Object.assign({}, {
         todos: state.todos.map(todo => {
@@ -29,16 +30,7 @@ export default (state = initialState, action) => {
       });
       console.log(tempState);
       return tempState;
-      // return Object.assign({}, state, {
-      //   todos: state.todos.map((todo, index) => {
-      //     if (index === action.index) {
-      //       return Object.assign({}, todo, {
-      //         completed: !todo.completed
-      //       })
-      //     }
-      //     return todo
-      //   })
-      // })
+      
     default:
       return state;
   }
